@@ -1,0 +1,66 @@
+"""
+Randomized QuickSort — Core Example of Randomized Algorithms
+================================================================
+
+If the pivot in standard QuickSort is always chosen from a fixed
+position (e.g., the last element), already-sorted or adversarially
+constructed arrays trigger the worst-case O(n^2) behavior.
+
+Solution: choose the pivot RANDOMLY. This makes QuickSort a
+"Las Vegas"-type randomized algorithm — the output is always correct,
+only the running time is randomized.
+
+Expected time complexity: O(n log n)
+Worst-case (with very low probability): O(n^2)
+
+This is the canonical example, in this course, of how randomization
+guards against worst-case inputs.
+"""
+
+import random
+from typing import List
+
+
+def randomized_quicksort(arr: List[int]) -> List[int]:
+    """Sorts the array (in-place internally) and returns a sorted copy."""
+    a = arr[:]
+    _quicksort(a, 0, len(a) - 1)
+    return a
+
+
+def _quicksort(a: List[int], lo: int, hi: int) -> None:
+    if lo < hi:
+        p = _randomized_partition(a, lo, hi)
+        _quicksort(a, lo, p - 1)
+        _quicksort(a, p + 1, hi)
+
+
+def _randomized_partition(a: List[int], lo: int, hi: int) -> int:
+    # Pick a random pivot and swap it to the last position so the
+    # classic Lomuto partition scheme can be applied
+    rand_index = random.randint(lo, hi)
+    a[rand_index], a[hi] = a[hi], a[rand_index]
+    return _lomuto_partition(a, lo, hi)
+
+
+def _lomuto_partition(a: List[int], lo: int, hi: int) -> int:
+    pivot = a[hi]
+    i = lo - 1
+    for j in range(lo, hi):
+        if a[j] <= pivot:
+            i += 1
+            a[i], a[j] = a[j], a[i]
+    a[i + 1], a[hi] = a[hi], a[i + 1]
+    return i + 1
+
+
+if __name__ == "__main__":
+    data = [5, 2, 9, 1, 5, 6, 3, 7, 8, 0]
+    print("Original array:", data)
+    print("Sorted array:  ", randomized_quicksort(data))
+
+    # Worst-case scenario test: an already-sorted array
+    sorted_data = list(range(1000))
+    result = randomized_quicksort(sorted_data)
+    assert result == sorted_data
+    print("Correctly handles an already-sorted array of 1000 elements ✅")
