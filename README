@@ -1,0 +1,54 @@
+# Divide and Conquer, Sorting and Searching, and Randomized Algorithms
+
+This repository contains Python implementations of core algorithms from the first course of Stanford University's *Algorithms Specialization* (taught by Prof. Tim Roughgarden, offered via Coursera). It was developed as part of my independent study of algorithm design and analysis, with an emphasis on the divide-and-conquer paradigm, classical sorting/searching techniques, and randomized algorithms.
+
+Each implementation includes:
+- A clear docstring explaining the underlying algorithmic idea
+- Time (and, where relevant, space) complexity analysis
+- Self-contained test cases with correctness checks (`assert` statements)
+
+## 🎓 Certificate
+
+This work reflects material covered in the course, which I completed and was awarded a certificate for:
+
+[![Coursera Certificate](https://img.shields.io/badge/Coursera-Certificate-blue?logo=coursera)](https://www.coursera.org/account/accomplishments/certificate/DMIUVGHBK2GT)
+
+📄 [View certificate](https://www.coursera.org/account/accomplishments/certificate/DMIUVGHBK2GT)
+
+## 📁 Contents
+
+| File | Algorithm | Time Complexity | Paradigm |
+|---|---|---|---|
+| `1_merge_sort.py` | Merge Sort + Inversion Counting | O(n log n) | Divide and Conquer |
+| `2_randomized_quicksort.py` | Randomized QuickSort | O(n log n) expected | Randomized Algorithms |
+| `3_karatsuba_multiplication.py` | Karatsuba Integer Multiplication | O(n^1.585) | Divide and Conquer |
+| `4_fast_power.py` | Fast Exponentiation | O(log b) | Divide and Conquer |
+| `5_randomized_selection.py` | Randomized Selection (QuickSelect) | O(n) expected | Randomized Algorithms |
+| `6_master_theorem_analyzer.py` | Master Theorem Classifier | — | Recurrence Analysis (utility) |
+
+## 🚀 Usage
+
+Each script is self-contained and requires no external dependencies:
+
+```bash
+python3 1_merge_sort.py
+python3 2_randomized_quicksort.py
+python3 3_karatsuba_multiplication.py
+python3 4_fast_power.py
+python3 5_randomized_selection.py
+python3 6_master_theorem_analyzer.py
+```
+
+## 📚 Topics Covered
+
+- **Divide and Conquer**: Merge Sort, Karatsuba Multiplication, Fast Exponentiation, Master Theorem
+- **Sorting and Searching**: Merge Sort, QuickSort, QuickSelect
+- **Randomized Algorithms**: Randomized QuickSort, Randomized Selection, expected-time analysis
+
+## ✅ Notes
+
+Every script includes an `if __name__ == "__main__":` block with test cases that validate correctness against known-good references (e.g., Python's built-in `sorted()` or native multiplication) before printing results.
+
+## 👤 About
+
+This repository is part of my personal algorithms portfolio, developed while studying algorithm design and analysis independently and through structured coursework. It is intended to demonstrate practical understanding of algorithmic paradigms relevant to computer science graduate study.
